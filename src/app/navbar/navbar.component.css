@@ -1,0 +1,39 @@
+/* Navbar container */
+.navbar {
+  background-color: #1976D2;
+  /* MUI primary color */
+  color: #fff;
+  /* Text color */
+  padding: 16px;
+  /* Add padding */
+}
+
+/* Navigation list */
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+/* Navigation item */
+.nav-item {
+  margin-right: 16px;
+}
+
+/* Navigation link */
+.mui-link {
+  color: #fff;
+  /* Text color */
+  text-decoration: none;
+  font-weight: 500;
+  /* Medium font weight */
+  transition: color 0.3s;
+  /* Add transition effect for color change */
+}
+
+.mui-link:hover {
+  color: #2196F3;
+  /* MUI primary color on hover */
+  text-decoration: underline;
+  /* Underline on hover */
+}
