@@ -1,5 +1,10 @@
 <ul>
   <li *ngFor="let breed of allBreeds | keyvalue">
-    {{ breed.key }}: {{ breed.value.join(", ") }}
+    <a [routerLink]="['/browse-breed']" [queryParams]="{ breed: breed.key }">{{
+      breed.key
+    }}</a>
+    <ng-container *ngIf="hasSubBreeds(breed.value)">
+      <button *ngFor="let subbreed of breed.value">{{ subbreed }}</button>
+    </ng-container>
   </li>
 </ul>

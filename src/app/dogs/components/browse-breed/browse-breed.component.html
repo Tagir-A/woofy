@@ -1,0 +1,13 @@
+<div *ngIf="isBreedListLoading; else content">Loading data...</div>
+<ng-template #content>
+  <select [(ngModel)]="selectedBreed" (change)="onSelectionChange($event)">
+    <option *ngFor="let option of breedOptions" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+  <!-- Image display -->
+  <div *ngIf="isImageLoading">Loading image...</div>
+  <div *ngIf="imageUrl && !isImageLoading">
+    <img [src]="imageUrl" alt="Random Dog" />
+  </div>
+</ng-template>
