@@ -14,7 +14,10 @@ export class ApiService {
 
   getAllBreeds(): Observable<ApiResponse> {
     const url = `${this.URL}/breeds/list/all`;
-    return this.http.get<ApiResponse>(url);
+    const headers = {
+      'x-cacheable': 'true',
+    };
+    return this.http.get<ApiResponse>(url, { headers });
   }
 
   getRandomImage(breed: string): Observable<ImageResponse> {
