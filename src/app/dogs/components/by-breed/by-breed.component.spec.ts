@@ -50,4 +50,9 @@ describe('ByBreedComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  // Loading breed list is successful
+
+  it('should populate breedOptions array with correct values', () => {
+    expect(component.breedOptions).toEqual(['bulldog']);
+  });
 });
