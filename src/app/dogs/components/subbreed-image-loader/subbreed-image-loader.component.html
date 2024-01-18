@@ -1,0 +1,5 @@
+<div *ngIf="isLoadingImages">Images loading</div>
+<ng-container *ngIf="!isLoadingImages">
+  <p>Total amount of images: {{ images.length }}</p>
+  <app-masonry-images [imageUrls]="images"></app-masonry-images>
+</ng-container>

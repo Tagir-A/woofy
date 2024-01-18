@@ -1,0 +1,33 @@
+.material-input-container {
+  margin-bottom: 20px;
+}
+
+.material-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.material-input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.material-input:focus {
+  border-color: #3f51b5;
+  /* Material UI Primary Color */
+}
+
+.error-label {
+  color: #f44336;
+  /* Material UI Error Color */
+  font-size: 0.875rem;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}

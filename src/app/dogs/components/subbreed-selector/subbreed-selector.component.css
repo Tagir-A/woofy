@@ -1,0 +1,27 @@
+.material-ui-container {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  max-width: 600px;
+}
+
+.select-container {
+  margin-bottom: 20px;
+}
+
+.material-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  /* Removes default styling for select in WebKit browsers */
+  -moz-appearance: none;
+  /* Removes default styling for select in Firefox */
+}
+
+.material-select:focus {
+  border-color: #3f51b5;
+  /* Material UI Primary Color */
+}
+

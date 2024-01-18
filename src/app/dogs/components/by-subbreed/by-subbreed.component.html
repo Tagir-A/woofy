@@ -1,0 +1,43 @@
+<app-subbreed-selector
+  (selectedChange)="onSubbreedChange($event)"
+></app-subbreed-selector>
+
+<form>
+  <label>
+    <input
+      type="radio"
+      name="stateType"
+      value="all"
+      [checked]="state.type === 'all'"
+      (change)="updateStateType('all')"
+    />
+    All
+  </label>
+
+  <label>
+    <input
+      type="radio"
+      name="stateType"
+      value="random"
+      [checked]="state.type === 'random'"
+      (change)="updateStateType('random')"
+    />
+    Random
+  </label>
+</form>
+
+<div class="ng-switch-container" [ngSwitch]="state.type">
+  <div *ngSwitchCase="'all'">All</div>
+  <div *ngSwitchCase="'random'">
+    <app-amount-input
+      (amountChange)="onRandomAmountChange($event)"
+    ></app-amount-input>
+  </div>
+</div>
+
+<app-subbreed-image-loader
+  class="app-subbreed-image-loader"
+  [payload]="payload"
+  [mode]="state"
+  [count]="count"
+></app-subbreed-image-loader>

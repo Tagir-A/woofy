@@ -1,0 +1,44 @@
+/* Form and Label Styles */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Material UI-like Button Styles */
+.material-button {
+  background-color: #1976d2;
+  /* Primary Color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.material-button:hover {
+  background-color: #1565c0;
+}
+
+/* Container Styles for ngSwitch */
+.ng-switch-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for app-subbreed-image-loader */
+.app-subbreed-image-loader {
+  margin-top: 20px;
+}

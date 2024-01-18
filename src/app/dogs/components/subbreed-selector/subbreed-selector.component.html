@@ -1,0 +1,32 @@
+<div class="material-ui-container">
+  <div *ngIf="isBreedListLoading; else content" class="loading-indicator">
+    Loading data...
+  </div>
+  <ng-template #content>
+    <div class="select-container">
+      <select
+        class="material-select"
+        [(ngModel)]="selectedBreed"
+        (change)="onSelectionChange()"
+      >
+        <option *ngFor="let breed of breedsWithSubbreeds" [value]="breed">
+          {{ breed }}
+        </option>
+      </select>
+    </div>
+    <div class="select-container">
+      <select
+        class="material-select"
+        [(ngModel)]="selectedSubbreed"
+        (change)="onSubbreedSelectionChange()"
+      >
+        <option
+          *ngFor="let subbreed of selectedBreedSubbreeds"
+          [value]="subbreed"
+        >
+          {{ subbreed }}
+        </option>
+      </select>
+    </div>
+  </ng-template>
+</div>

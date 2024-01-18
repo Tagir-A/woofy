@@ -32,4 +32,20 @@ export class ApiService {
     const url = `${this.URL}/breeds/image/random/${count}`;
     return this.http.get<ImageListResponse>(url);
   }
+
+  getAllSubbreedImages(
+    breed: string,
+    subbreed: string
+  ): Observable<ImageListResponse> {
+    const url = `${this.URL}/breed/${breed}/${subbreed}/images`;
+    const headers = {
+      'x-cacheable': 'true',
+    };
+    return this.http.get<ImageListResponse>(url, { headers });
+  }
+
+  getRandomSubbreedImages(breed: string, subbreed: string, count: number = 1) {
+    const url = `${this.URL}/breed/${breed}/${subbreed}/images/random/${count}`;
+    return this.http.get<ImageListResponse>(url);
+  }
 }
