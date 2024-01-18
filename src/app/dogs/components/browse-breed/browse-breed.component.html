@@ -18,7 +18,12 @@
     <!-- Image display -->
     <div class="image-loading" *ngIf="isImageLoading">Loading image...</div>
     <div class="image-container" *ngIf="imageUrl && !isImageLoading">
-      <img class="material-image" [src]="imageUrl" alt="Random Dog" />
+      <img
+        class="material-image"
+        [src]="imageUrl"
+        alt="Random Dog"
+        [lazyLoad]="imageUrl[0]"
+      />
     </div>
   </ng-template>
 </div>

@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../service/api.service';
 import { Subject } from 'rxjs';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
   selector: 'app-browse-breed',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, LazyLoadImageModule],
   templateUrl: './browse-breed.component.html',
   styleUrl: './browse-breed.component.css',
 })
