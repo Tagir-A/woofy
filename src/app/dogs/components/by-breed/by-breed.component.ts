@@ -4,11 +4,18 @@ import { Subject } from 'rxjs';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AmountInputComponent } from '../amount-input/amount-input.component';
+import { BreedImageLoaderComponent } from '../breed-image-loader/breed-image-loader.component';
 
 @Component({
   selector: 'app-by-breed',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    AmountInputComponent,
+    BreedImageLoaderComponent,
+  ],
   templateUrl: './by-breed.component.html',
   styleUrl: './by-breed.component.css',
 })
@@ -19,6 +26,8 @@ export class ByBreedComponent implements OnInit {
   isBreedListLoading: boolean = false;
   imageUrl: string[] = [];
   isImageLoading: boolean = false;
+  state: { type: 'all' } | { type: 'random' } = { type: 'random' };
+  count: number = 1;
 
   private route = inject(ActivatedRoute);
   private dogApiService = inject(ApiService);
@@ -73,5 +82,12 @@ export class ByBreedComponent implements OnInit {
         this.isImageLoading = false;
       },
     });
+  }
+
+  updateStateType(newType: 'all' | 'random') {
+    this.state = { type: newType };
+  }
+  onRandomAmountChange(count: number) {
+    this.count = count;
   }
 }

@@ -48,4 +48,20 @@ export class ApiService {
     const url = `${this.URL}/breed/${breed}/${subbreed}/images/random/${count}`;
     return this.http.get<ImageListResponse>(url);
   }
+
+  getAllBreedImages(breed: string): Observable<ImageListResponse> {
+    const url = `${this.URL}/breed/${breed}/images`;
+    const headers = {
+      'x-cacheable': 'true',
+    };
+    return this.http.get<ImageListResponse>(url, { headers });
+  }
+
+  getRandomBreedImages(
+    breed: string,
+    count: number = 1
+  ): Observable<ImageListResponse> {
+    const url = `${this.URL}/breed/${breed}/images/random/${count}`;
+    return this.http.get<ImageListResponse>(url);
+  }
 }
