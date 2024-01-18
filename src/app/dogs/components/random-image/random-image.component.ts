@@ -2,11 +2,18 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AmountInputComponent } from '../amount-input/amount-input.component';
+import { MasonryImagesComponent } from '../ui/masonry-images/masonry-images.component';
 
 @Component({
   selector: 'app-random-image',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    AmountInputComponent,
+    MasonryImagesComponent,
+  ],
   templateUrl: './random-image.component.html',
   styleUrl: './random-image.component.css',
 })
@@ -19,11 +26,6 @@ export class RandomImageComponent implements OnInit {
   private dogApiService = inject(ApiService);
 
   ngOnInit(): void {
-    this.loadImages();
-  }
-
-  onChange() {
-    this.validateInput();
     this.loadImages();
   }
 
@@ -44,11 +46,8 @@ export class RandomImageComponent implements OnInit {
     });
   }
 
-  validateInput() {
-    if (this.count < 1 || this.count > 50) {
-      this.hasError = true;
-    } else {
-      this.hasError = false;
-    }
+  onRandomAmountChange(count: number) {
+    this.count = count;
+    this.loadImages();
   }
 }
