@@ -62,7 +62,7 @@ export class BrowseBreedComponent implements OnInit {
 
   loadImage(value: string) {
     this.isImageLoading = true;
-    this.dogApiService.getRandomImage(value).subscribe({
+    this.dogApiService.getRandomBreedImage(value).subscribe({
       next: (response) => {
         this.imageUrl = response.message;
       },

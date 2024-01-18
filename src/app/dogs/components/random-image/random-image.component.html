@@ -1,0 +1,23 @@
+<div class="material-container">
+  <div class="material-input-container">
+    <label for="count" class="material-label">How many images?</label>
+    <input
+      id="count"
+      name="count"
+      type="number"
+      class="material-input"
+      [(ngModel)]="count"
+      (change)="onChange()"
+    />
+    <div class="error-label" *ngIf="hasError">
+      The number should be between 1 and 50
+    </div>
+  </div>
+
+  <div *ngIf="isImageLoading" class="loading">Loading image...</div>
+  <div *ngIf="!isImageLoading" class="masonry-grid">
+    <div class="masonry-column" *ngFor="let imageUrl of imageUrls">
+      <img class="material-image" [src]="imageUrl" alt="Random Dog" />
+    </div>
+  </div>
+</div>

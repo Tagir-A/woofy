@@ -1,0 +1,72 @@
+.material-container {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: #333;
+  max-width: 600px;
+  /* Adjust width as needed */
+  margin: auto;
+}
+
+.material-input-container {
+  margin-bottom: 20px;
+}
+
+.material-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.material-input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.material-input:focus {
+  border-color: #3f51b5;
+  /* Material UI Primary Color */
+}
+
+.error-label {
+  color: #f44336;
+  /* Material UI Error Color */
+  font-size: 0.875rem;
+  margin-top: -8px;
+  margin-bottom: 16px;
+}
+
+.loading {
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.masonry-grid {
+  column-count: 3;
+  /* Adjust the number of columns based on your preference */
+  column-gap: 10px;
+  margin: 0 auto;
+}
+
+.masonry-column {
+  break-inside: avoid-column;
+  margin-bottom: 10px;
+}
+
+.material-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  /* To prevent unwanted margin below the image */
+}
