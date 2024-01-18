@@ -31,6 +31,12 @@ describe('BrowseBreedComponent', () => {
         status: 'success',
       })
     ),
+    getRandomBreedImage: jasmine.createSpy().and.returnValue(
+      of({
+        message: ['https://example.com/image.jpg'],
+        status: 'success',
+      })
+    ),
   };
 
   beforeEach(async () => {
@@ -49,5 +55,28 @@ describe('BrowseBreedComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should update selectedBreed variable on selection change', () => {
+    const event = {
+      target: {
+        value: 'bulldog',
+      },
+    };
+    component.onSelectionChange(event as any);
+    expect(component.selectedBreed).toEqual('bulldog');
+  });
+
+  it('should load breed image and update URL query parameter', () => {
+    const event = {
+      target: {
+        value: 'bulldog',
+      },
+    };
+    component.onSelectionChange(event as any);
+    expect(component.selectedBreed).toEqual('bulldog');
+    // Check if the query parameter is updated
+    const queryParams = (component as any).route.snapshot.queryParams;
+    expect(queryParams['breed']).toEqual('bulldog');
   });
 });
