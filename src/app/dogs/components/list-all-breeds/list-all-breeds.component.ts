@@ -4,6 +4,7 @@ import { ApiResponse } from '../../types/api-response';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BreedFilterService } from '../../service/breed-filter.service';
 
 @Component({
   selector: 'app-list-all-breeds',
@@ -14,9 +15,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListAllBreedsComponent implements OnInit {
   allBreeds: ApiResponse['message'] = {};
-  filterText: string = '';
 
   private dogApiService = inject(ApiService);
+  private filterService = inject(BreedFilterService);
 
   ngOnInit(): void {
     this.dogApiService.getAllBreeds().subscribe({
@@ -27,6 +28,14 @@ export class ListAllBreedsComponent implements OnInit {
         console.error('Some error: ', err);
       },
     });
+  }
+
+  get filterText() {
+    return this.filterService.filterText;
+  }
+
+  set filterText(value: string) {
+    this.filterService.filterText = value;
   }
 
   hasSubBreeds(breedData?: string[]): boolean {
