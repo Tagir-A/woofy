@@ -3,6 +3,7 @@ import { ApiResponse } from '../../types/api-response';
 import { ApiService } from '../../service/api.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-subbreed-selector',
@@ -25,6 +26,8 @@ export class SubbreedSelectorComponent implements OnInit {
   }>();
 
   private dogApiService = inject(ApiService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.isBreedListLoading = true;
@@ -34,9 +37,17 @@ export class SubbreedSelectorComponent implements OnInit {
         this.breedsWithSubbreeds = Object.entries(this.allBreeds)
           .filter(([_, subbreeds]) => subbreeds.length > 0)
           .map(([breed]) => breed);
-        this.selectedBreed = this.breedsWithSubbreeds[0];
+
+        // Get query parameters and set default values
+        const params = this.route.snapshot.queryParams;
+        const breedParam = params['breed'];
+        const subbreedParam = params['subbreed'];
+        const defaultBreed = breedParam ?? this.breedsWithSubbreeds[0];
+        this.selectedBreed = defaultBreed;
         this.selectedBreedSubbreeds = this.allBreeds[this.selectedBreed];
-        this.selectedSubbreed = this.selectedBreedSubbreeds[0];
+        const defaultSubbreed = subbreedParam ?? this.selectedBreedSubbreeds[0];
+
+        this.selectedSubbreed = defaultSubbreed;
         this.onSubbreedSelectionChange();
       },
       error(err) {
@@ -57,6 +68,15 @@ export class SubbreedSelectorComponent implements OnInit {
     this.selectedChange.emit({
       breed: this.selectedBreed,
       subbreed: this.selectedSubbreed,
+    });
+    // Update the query parameter
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        breed: this.selectedBreed,
+        subbreed: this.selectedSubbreed,
+      },
+      queryParamsHandling: 'merge',
     });
   }
 }

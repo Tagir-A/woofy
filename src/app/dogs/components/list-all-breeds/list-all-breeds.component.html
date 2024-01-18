@@ -15,7 +15,12 @@
         >{{ breed.key }}</a
       >
       <div class="subbreed-container" *ngIf="hasSubBreeds(breed.value)">
-        <button class="subbreed-button" *ngFor="let subbreed of breed.value">
+        <button
+          class="subbreed-button"
+          [routerLink]="['/by-subbreed']"
+          [queryParams]="{ breed: breed.key, subbreed: subbreed }"
+          *ngFor="let subbreed of breed.value"
+        >
           {{ subbreed }}
         </button>
       </div>
