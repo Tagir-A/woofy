@@ -51,4 +51,21 @@ describe('BySubbreedComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should initialize with the correct default state', () => {
+    expect(component.state).toEqual({ type: 'random' });
+    expect(component.payload).toEqual({
+      breed: 'bulldog',
+      subbreed: 'english',
+    });
+    expect(component.count).toEqual(1);
+  });
+
+  it('should update the state type correctly', () => {
+    component.updateStateType('all');
+    expect(component.state).toEqual({ type: 'all' });
+
+    component.updateStateType('random');
+    expect(component.state).toEqual({ type: 'random' });
+  });
 });
