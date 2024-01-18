@@ -20,9 +20,12 @@ export class ApiService {
     return this.http.get<ApiResponse>(url, { headers });
   }
 
-  getRandomBreedImage(breed: string): Observable<ImageResponse> {
-    const url = `${this.URL}/breed/${breed}/images/random`;
-    return this.http.get<ImageResponse>(url);
+  getRandomBreedImage(
+    breed: string,
+    count: number = 1
+  ): Observable<ImageListResponse> {
+    const url = `${this.URL}/breed/${breed}/images/random/${count}`;
+    return this.http.get<ImageListResponse>(url);
   }
 
   getRandomImage(count: number = 1): Observable<ImageListResponse> {

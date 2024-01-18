@@ -13,11 +13,11 @@ import { Subject } from 'rxjs';
   styleUrl: './browse-breed.component.css',
 })
 export class BrowseBreedComponent implements OnInit {
-  breedOptions: string[] = ['qwerty'];
+  breedOptions: string[] = [];
   selectedBreed: string = '';
   selectedBreed$: Subject<string> = new Subject<string>();
   isBreedListLoading: boolean = false;
-  imageUrl: string = '';
+  imageUrl: string[] = [];
   isImageLoading: boolean = false;
 
   private route = inject(ActivatedRoute);
