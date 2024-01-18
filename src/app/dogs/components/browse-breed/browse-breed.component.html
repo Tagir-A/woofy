@@ -1,13 +1,24 @@
-<div *ngIf="isBreedListLoading; else content">Loading data...</div>
-<ng-template #content>
-  <select [(ngModel)]="selectedBreed" (change)="onSelectionChange($event)">
-    <option *ngFor="let option of breedOptions" [value]="option">
-      {{ option }}
-    </option>
-  </select>
-  <!-- Image display -->
-  <div *ngIf="isImageLoading">Loading image...</div>
-  <div *ngIf="imageUrl && !isImageLoading">
-    <img [src]="imageUrl" alt="Random Dog" />
+<div class="material-ui-container">
+  <div *ngIf="isBreedListLoading; else content" class="loading-indicator">
+    Loading data...
   </div>
-</ng-template>
+  <ng-template #content>
+    <div class="select-container">
+      <select
+        class="material-select"
+        [(ngModel)]="selectedBreed"
+        (change)="onSelectionChange($event)"
+      >
+        <option *ngFor="let option of breedOptions" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Image display -->
+    <div class="image-loading" *ngIf="isImageLoading">Loading image...</div>
+    <div class="image-container" *ngIf="imageUrl && !isImageLoading">
+      <img class="material-image" [src]="imageUrl" alt="Random Dog" />
+    </div>
+  </ng-template>
+</div>

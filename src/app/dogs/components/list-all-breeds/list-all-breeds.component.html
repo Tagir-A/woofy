@@ -1,12 +1,24 @@
-<input type="text" placeholder="Filter breeds..." [(ngModel)]="filterText" />
+<div class="material-ui-container">
+  <input
+    type="text"
+    class="material-input"
+    placeholder="Filter breeds..."
+    [(ngModel)]="filterText"
+  />
 
-<ul>
-  <li *ngFor="let breed of filteredBreeds | keyvalue">
-    <a [routerLink]="['/browse-breed']" [queryParams]="{ breed: breed.key }">{{
-      breed.key
-    }}</a>
-    <ng-container *ngIf="hasSubBreeds(breed.value)">
-      <button *ngFor="let subbreed of breed.value">{{ subbreed }}</button>
-    </ng-container>
-  </li>
-</ul>
+  <ul class="breed-list">
+    <li *ngFor="let breed of filteredBreeds | keyvalue" class="breed-item">
+      <a
+        class="breed-link"
+        [routerLink]="['/browse-breed']"
+        [queryParams]="{ breed: breed.key }"
+        >{{ breed.key }}</a
+      >
+      <div class="subbreed-container" *ngIf="hasSubBreeds(breed.value)">
+        <button class="subbreed-button" *ngFor="let subbreed of breed.value">
+          {{ subbreed }}
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

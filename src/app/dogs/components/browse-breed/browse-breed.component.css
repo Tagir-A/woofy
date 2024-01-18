@@ -1,0 +1,47 @@
+.material-ui-container {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.loading-indicator,
+.image-loading {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.select-container {
+  margin-bottom: 20px;
+}
+
+.material-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  /* Removes default styling for select in WebKit browsers */
+  -moz-appearance: none;
+  /* Removes default styling for select in Firefox */
+}
+
+.material-select:focus {
+  border-color: #3f51b5;
+  /* Material UI Primary Color */
+}
+
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.material-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
