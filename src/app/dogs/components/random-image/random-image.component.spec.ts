@@ -38,4 +38,18 @@ describe('RandomImageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should load images on initialization', () => {
+    spyOn(component, 'loadImages');
+    component.ngOnInit();
+    expect(component.loadImages).toHaveBeenCalled();
+  });
+
+  it('should update count and load images on random amount change', () => {
+    const count = 5;
+    spyOn(component, 'loadImages');
+    component.onRandomAmountChange(count);
+    expect(component.count).toEqual(count);
+    expect(component.loadImages).toHaveBeenCalled();
+  });
 });
