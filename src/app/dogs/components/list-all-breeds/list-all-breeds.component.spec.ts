@@ -22,6 +22,7 @@ describe('ListAllBreedsComponent', () => {
       of({
         message: {
           bulldog: ['english', 'french'],
+          doggo: ['doge', 'coin'],
         },
         status: 'success',
       })
@@ -50,5 +51,21 @@ describe('ListAllBreedsComponent', () => {
   it('should create', () => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
+  });
+
+  it('should initialize allBreeds with the response from getAllBreeds()', () => {
+    fixture.detectChanges();
+    expect(component.allBreeds).toEqual({
+      bulldog: ['english', 'french'],
+      doggo: ['doge', 'coin'],
+    });
+  });
+
+  it('should filter breeds based on the filterText', () => {
+    fixture.detectChanges();
+    component.filterText = 'bul';
+    expect(component.filteredBreeds).toEqual({
+      bulldog: ['english', 'french'],
+    });
   });
 });
