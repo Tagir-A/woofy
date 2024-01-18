@@ -1,5 +1,7 @@
+<input type="text" placeholder="Filter breeds..." [(ngModel)]="filterText" />
+
 <ul>
-  <li *ngFor="let breed of allBreeds | keyvalue">
+  <li *ngFor="let breed of filteredBreeds | keyvalue">
     <a [routerLink]="['/browse-breed']" [queryParams]="{ breed: breed.key }">{{
       breed.key
     }}</a>
